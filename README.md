@@ -86,7 +86,8 @@ id name credit_hours student_id
 - Ex: You have a table named "students" and a table named "classes." Each student can be enrolled in multiple classes, and each class can have multiple students enrolled. To create a many-to-many relationship between the two tables, you can create a third table named "enrollments" that includes foreign keys from both the "students" and "classes" tables. The "enrollments" table can store information about each student's enrollment in each class.
 
 # Identify a pair of tables that have a many-to-one relationship.
-
+ Employee to Addresses
 # Identify a pair of tables that have a one-to-one relationship.
-
+user to employee
 # Identify a many-to-many relationship in the diagram.
+restaurant to orders and products
