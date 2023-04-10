@@ -69,3 +69,39 @@ tr:hover {
 #tables {
     margin-top: 20px;
 }
+
+/* Restaurant styling */
+
+.restaurant-container p {
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.restaurant-container strong {
+    font-weight: bold;
+}
+
+.restaurant-container p:last-child {
+    margin-bottom: 0;
+}
+
+.restaurant-container .active-yes {
+    color: green;
+}
+
+.restaurant-container .active-no {
+    color: red;
+}
+
+/* Active */
+
+
+.active {
+    background-color: green;
+    color: white;
+}
+
+.inactive {
+    background-color: red;
+    color: white;
+}

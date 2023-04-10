@@ -76,6 +76,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_06_214125) do
     t.integer "address_id", null: false
     t.string "phone", null: false
     t.string "email"
+    t.string "name", null: false
     t.integer "price_range", default: 1, null: false
     t.boolean "active", default: true, null: false
     t.datetime "created_at", null: false

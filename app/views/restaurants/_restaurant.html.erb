@@ -1,37 +1,38 @@
-<div id="<%= dom_id restaurant %>">
-  <p>
-    <strong>User:</strong>
-    <%= restaurant.user_id %>
-  </p>
-
-  <p>
-    <strong>Address:</strong>
-    <%= restaurant.address_id %>
-  </p>
-
-  <p>
-    <strong>Phone:</strong>
-    <%= restaurant.phone %>
-  </p>
-
-  <p>
-    <strong>Email:</strong>
-    <%= restaurant.email %>
-  </p>
-
-  <p>
-    <strong>Price range:</strong>
-    <%= restaurant.price_range %>
-  </p>
-
-  <p>
-    <strong>Active:</strong>
-    <%= restaurant.active %>
-  </p>
-
-  <p>
-    <strong>Boolean:</strong>
-    <%= restaurant.boolean %>
-  </p>
-
+<div id="<%= dom_id restaurant %>" class="restaurant-container">
+  <table class="restaurant-table">
+    <tbody>
+      <tr>
+        <td><strong>User:</strong></td>
+        <td><%= restaurant.user_id %></td>
+      </tr>
+      <tr>
+        <td><strong>Address:</strong></td>
+        <td><%= restaurant.address_id %></td>
+      </tr>
+      <tr>
+        <td><strong>Phone:</strong></td>
+        <td><%= restaurant.phone %></td>
+      </tr>
+      <tr>
+        <td><strong>Email:</strong></td>
+        <td><%= restaurant.email %></td>
+      </tr>
+      <tr>
+        <td><strong>Price range:</strong></td>
+        <td><%= restaurant.price_range %></td>
+      </tr>
+      <tr>
+        <td><strong>Active:</strong></td>
+        <td>
+          <%= form_with url: restaurant, method: :patch, local: true do |form| %>
+            <%= form.hidden_field :active, value: !restaurant.active %>
+            <%= form.submit restaurant.active ? "Active" : "Not Active", class: restaurant.active ? "active" : "inactive" %>
+          <% end %>
+        </td>
+        <td>
+          <%= restaurant.active ? "Active" : "Not Active" %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>

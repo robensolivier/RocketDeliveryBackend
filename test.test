@@ -30,3 +30,36 @@
 # </div>
 
 # <%= link_to "New restaurant", new_restaurant_path %>
+
+
+# <div id="<%= dom_id restaurant %>" class="restaurant-container">
+# <table class="restaurant-table">
+# <tbody>
+#   <tr>
+#     <td><strong>User:</strong></td>
+#     <td><%= restaurant.user_id %></td>
+#   </tr>
+#   <tr>
+#     <td><strong>Address:</strong></td>
+#     <td><%= restaurant.address_id %></td>
+#   </tr>
+#   <tr>
+#     <td><strong>Phone:</strong></td>
+#     <td><%= restaurant.phone %></td>
+#   </tr>
+#   <tr>
+#     <td><strong>Email:</strong></td>
+#     <td><%= restaurant.email %></td>
+#   </tr>
+#   <tr>
+#     <td><strong>Price range:</strong></td>
+#     <td><%= restaurant.price_range %></td>
+#   </tr>
+#   <tr>
+#     <td><strong>Active:</strong></td>
+#     <td><%= restaurant.active ? "Yes" : "No" %></td>
+#   </tr>
+# </tbody>
+# </table>
+
+# </div>
