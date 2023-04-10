@@ -13,3 +13,59 @@
  *= require_tree .
  *= require_self
  */
+nav {
+    background-color: #333;
+    overflow: hidden;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+nav li {
+    float: left;
+}
+
+nav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+nav li a:hover {
+    background-color: #111;
+}
+
+/* app/assets/stylesheets/employees.css */
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th,
+td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #333;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #ddd;
+}
+
+#tables {
+    margin-top: 20px;
+}

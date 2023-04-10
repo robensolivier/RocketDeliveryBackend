@@ -1,0 +1,13 @@
+<nav>
+  <ul>
+    <li><%= link_to 'RFD Admin', root_path %></li>
+    <% if @current_template  %>
+      <li><%= link_to 'Sign out', destroy_user_session_path: :delete %></li>
+      <li><%= link_to 'Employees', employees_path %></li>
+      <li><%= link_to 'Restaurants', restaurants_path %></li>
+    <% else %>
+      <li><%= link_to 'Sign in', root_path %></li>
+      <li>Welcome stranger</li>
+    <% end %>
+  </ul>
+</nav>

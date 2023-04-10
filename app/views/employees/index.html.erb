@@ -1,0 +1,28 @@
+<h1>Employees</h1>
+<%= link_to "New employee", new_employee_path %>
+<div id="tables">
+    <table>
+        <tr>
+            <th>id</th>
+            <th>user_id</th>
+            <th>address_id</th>
+            <th>phone</th>
+            <th>email</th>
+            <th>created_at</th>
+            <th>updated_at</th>
+            <th>action</th>
+        </tr>
+          <% @employees.each do |employee| %>
+            <tr>
+              <th> <%=employee.id %> </th>
+              <th> <%=employee.user_id %> </th>
+              <th> <%=employee.address_id %> </th>
+              <th> <%=employee.phone %> </th>
+              <th> <%=employee.email %> </th>
+              <th> <%=employee.created_at %> </th>
+              <th> <%=employee.updated_at %> </th>
+              <th><%= link_to "Edit this employee", edit_employee_path(employee) %>| <%= button_to "Destroy this employee", employee, method: :delete %></th>
+            </tr>
+          <% end %>
+    </table>
+</div>
