@@ -3,7 +3,7 @@
   <ul>
     <li><%= link_to 'RFD Admin', root_path %></li>
     <% if user_signed_in? %>
-      <li><%= link_to 'Sign out', destroy_user_session_path: :delete %></li>
+      <li><%= link_to 'Sign out', destroy_user_session_path: :delete, class: 'nav_button' %></li>
       <li><%= link_to 'Employees', employees_path %></li>
       <li><%= link_to 'Restaurants', restaurants_path %></li>
     <% else %>
