@@ -10,11 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_06_214125) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_11_163358) do
   create_table "addresses", force: :cascade do |t|
     t.string "street_address", null: false
     t.string "city", null: false
     t.string "postal_code", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "courier_statuses", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "couriers", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "address_id", null: false
+    t.integer "courier_status_id", default: 1, null: false
+    t.string "phone", null: false
+    t.string "email"
+    t.boolean "active", default: true, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -101,6 +118,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_06_214125) do
   add_foreign_key "employees", "addresses"
   add_foreign_key "employees", "users"
   add_foreign_key "orders", "customers"
+  add_foreign_key "orders", "order_statuses"
   add_foreign_key "orders", "order_statuses"
   add_foreign_key "orders", "restaurants"
   add_foreign_key "product_orders", "orders"
