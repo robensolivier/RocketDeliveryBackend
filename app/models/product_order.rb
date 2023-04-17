@@ -1,6 +1,16 @@
 class ProductOrder < ApplicationRecord
-    validates :product_quantity, :numericality => { greater_than: 0 }
+    belongs_to :order
+    belongs_to :product
+    validates :product_quantity, :numericality => { greater_than: 0 } 
     validates :product_unit_cost, :numericality => { greater_than_or_equal_to: 0 }
-    belongs_to :order, class_name: 'Order', foreign_key: 'order_id'
-    belongs_to :products, class_name: 'Products', foreign_key:'product_id'
+    validates :product_id, :order_id, :product_quantity, :product_unit_cost, presence:true
+    validates :product_id, uniqueness: {scope: :order_id}
+    validate :product_belongs_to_restaurant
+
+    def product_belongs_to_restaurant
+        if product.present? && order.present? && product.restaurant_id != order.restaurant_id
+            errors.add(:product, "must belong to the same restaurant as the order")
+        end
+    end
+
 end

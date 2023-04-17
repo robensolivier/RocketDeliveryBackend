@@ -1,5 +1,8 @@
 class Customer < ApplicationRecord
     validates_uniqueness_of :user_id
-    belongs_to :addresses, class_name: 'Address', foreign_key: 'adress_id'
-    belongs_to :users, class_name: 'User', foreign_key: 'user_id'
+    validates :phone, :address_id, :active, :user_id, presence: true
+    belongs_to :address
+    belongs_to :user
+    has_many :orders
+
 end

@@ -1,8 +1,8 @@
 class CreateRestaurants < ActiveRecord::Migration[7.0]
   def change
     create_table :restaurants do |t|
-      t.integer :user_id,       null: false
-      t.integer :address_id,    null: false, unique: true
+      t.references :user,       null: false, foreign_key: true
+      t.references :address,    null: false, unique: true, foreign_key:true
       t.string :phone,          null: false
       t.string :email     
       t.string :name,           null:false
@@ -11,7 +11,6 @@ class CreateRestaurants < ActiveRecord::Migration[7.0]
 
       t.timestamps              null: false 
     end
-    add_foreign_key :restaurants, :users, column: :user_id, primary_key: "id"
-    add_foreign_key :restaurants, :addresses, column: :address_id, primary_key: "id"
+
   end
 end

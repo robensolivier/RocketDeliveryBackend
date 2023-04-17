@@ -10,10 +10,21 @@ Rails.application.routes.draw do
   resources :employees
   resources :addresses
   devise_for :users
-  root to: "home#index" 
-  get '/users', to: 'users#index'
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  root to: "home#index"
+
+  # GET routes
+  get '/users', to: 'users#index'
+  get 'products', to: 'products#index'
+
+  namespace :api do
+    get '/orders', to: 'orders#index', as: 'api_orders'
+    post 'login', to: 'auth#index'
+
+    resources :orders, only: [:index, :create] do
+      namespace :api do
+        post '/api/order/#{@order.id}/status', to: 'orders#update_order_status', as: 'api_update_order_status'
+      end
+    end
+  end
 end
