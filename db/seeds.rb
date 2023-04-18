@@ -10,7 +10,7 @@ Employee.create!(user_id: erica.id, address_id: erica_address.id, phone: "514123
   User.create!(
     email: Faker::Internet.unique.email,
     name: Faker::Name.unique.name,
-    password: "password"
+    password: "password",
   )
 end
 
